@@ -7,7 +7,6 @@
 
 MHZ19_RESULT response;
 SoftwareSerial* CO2Serial;//(CO2_TXPIN, CO2_RXPIN);
-SoftwareSerial* PMSerial;  //(PM_TXPIN, PM_RXPIN);
 MHZ19* mhz;
 
 void setup() {
@@ -18,7 +17,6 @@ Serial.println("Serial Begin Started");
 
 void loop() {
   CO2Serial = new SoftwareSerial(CO2_TX_PIN, CO2_RX_PIN);
-  ///  PMSerial = new SoftwareSerial(PM_TX_PIN, PM_RX_PIN);  
   CO2Serial->begin(9600);
   mhz = new MHZ19(CO2Serial);  
   while (1){
