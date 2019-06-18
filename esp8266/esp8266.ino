@@ -1,5 +1,5 @@
 #include <SoftwareSerial.h>
-SoftwareSerial esp8266(2, 3);
+SoftwareSerial esp8266_dev(2, 3);
 
 void setup() {
   // Open serial communications and wait for port to open:
@@ -10,15 +10,15 @@ void setup() {
   Serial.println("Started");
 
   // set the data rate for the SoftwareSerial port
-  esp8266.begin(9600);
-  esp8266.write("AT+CWLAP\r\n");
+  esp8266_dev.begin(9600);
+  esp8266_dev.write("AT+CWLAP\r\n");
 }
 
 void loop() {
-  if (esp8266.available()) {
-    Serial.write(esp8266.read());
+  if (esp8266_dev.available()) {
+    Serial.write(esp8266_dev.read());
   }
   if (Serial.available()) {
-    esp8266.write(Serial.read());
+    esp8266_dev.write(Serial.read());
   }
 }
