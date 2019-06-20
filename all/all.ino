@@ -16,7 +16,6 @@
 
 //SensorRecord rec;
 //int readSuccess = EEPROM_readAnything (0, rec);
-//int writeSuccess = EEPROM_writeAnything (0, rec);
 //int sensorID = rec.sensorID;
 int sensorID = 0;
 int sendJSONToHTTP(){
