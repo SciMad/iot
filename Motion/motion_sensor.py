@@ -41,7 +41,7 @@ while True:
             last_saved = time.time()
 
     if (time.time() - last_sent > 30):
-        post_data = {"HUMAN_PRESENT":last_state}
+        post_data = {'HUMAN_PRESENT':last_state}
         print ("Sending....",post_data)
         try:
             res = requests.post(url=API_ENDPOINT, data=json.dumps(post_data))
