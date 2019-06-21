@@ -42,6 +42,9 @@ while True:
     if (time.time() - last_sent > 30):
         post_data = "{\"HUMAN_PRESENT\":" + str(last_state) + "}"
         print ("Sending....",post_data)
-        res = requests.post(url=API_ENDPOINT, data=post_data)
-        print (res)
+        try:
+            res = requests.post(url=API_ENDPOINT, data=post_data)
+            print (res)
+        except Exception as e:
+            print("...problem connecting to IoT server!")
         last_sent = time.time();
