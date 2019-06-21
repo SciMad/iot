@@ -22,8 +22,8 @@ HUMAN_NOT_PRESENT = 0
 motion = 0;
 last_state = HUMAN_NOT_PRESENT;
 
-last_saved = time.time()-30;
-last_sent = time.time()-30;
+last_saved = time.time()-20;
+last_sent = time.time()-20;
 
 
 while True:
