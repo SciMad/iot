@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import requests
+import json
 
 API_ENDPOINT = "http://10.10.10.172:1880/dat"
 
@@ -40,10 +41,10 @@ while True:
             last_saved = time.time()
 
     if (time.time() - last_sent > 30):
-        post_data = "{\"HUMAN_PRESENT\":" + str(last_state) + "}"
+        post_data = {"HUMAN_PRESENT":last_state}
         print ("Sending....",post_data)
         try:
-            res = requests.post(url=API_ENDPOINT, data=post_data)
+            res = requests.post(url=API_ENDPOINT, data=json.dumps(post_data))
             print (res)
         except Exception as e:
             print("...problem connecting to IoT server!")
