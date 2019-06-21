@@ -36,11 +36,11 @@ while True:
         # print("Motion detected.")
     else:
         #LOW means there is no change in IR level
-        if (time.time()-last_saved > 30):
+        if (time.time()-last_saved > 45):
             last_state = HUMAN_NOT_PRESENT
             last_saved = time.time()
 
-    if (time.time() - last_sent > 30):
+    if (time.time() - last_sent > 10):
         post_data = {'HUMAN_PRESENT':last_state}
         print ("Sending....",post_data)
         try:
