@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import requests
 
-API_ENDPOINT = "10.10.10.172:1880/dat"
+API_ENDPOINT = "http://10.10.10.172:1880/dat"
 
 #Note:
 #While using the function GPIO.setup(PIR_input, GPIO.IN) or GPIO.input(PIR_input), 
@@ -41,7 +41,7 @@ while True:
 
     if (time.time() - last_sent > 30):
         post_data = "{\"HUMAN_PRESENT\":" + str(last_state) + "}"
-        print ("Sending....\n",post_data)
+        print ("Sending....",post_data)
         res = requests.post(url=API_ENDPOINT, data=post_data)
         print (res)
         last_sent = time.time();
