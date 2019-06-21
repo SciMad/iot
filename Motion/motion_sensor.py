@@ -22,8 +22,8 @@ HUMAN_NOT_PRESENT = 0
 motion = 0;
 last_state = HUMAN_NOT_PRESENT;
 
-last_saved = time.time();
-last_sent = time.time();
+last_saved = time.time()-30;
+last_sent = time.time()-30;
 
 
 while True:
@@ -41,7 +41,7 @@ while True:
 
     if (time.time() - last_sent > 30):
         post_data = "{\"HUMAN_PRESENT\":" + str(last_state) + "}"
-        print ("Sending....\n",data)
+        print ("Sending....\n",post_data)
         res = requests.post(url=API_ENDPOINT, data=post_data)
         print (res)
         last_sent = time.time();
